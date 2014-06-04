@@ -1,9 +1,3 @@
-=begin
-#todo
-  remove same station from choices
-=end
-require 'pry'
-
 Lines = {
   :N => [:N_Times_Square,:N_34th,:N_28th,:N_23rd,:Union_Square,:N8th],
   :L => [:L8th,:L_6th,:Union_Square,:L_3rd,:L_1st],
@@ -20,7 +14,6 @@ def input(message)
       puts "Put integer"
     end
     break if output.class == Fixnum
-    #binding.pry
   end
   output
 end
@@ -43,12 +36,12 @@ def options_select (array)
   choice
 end
 #stop listers
-def stops_to_common (start_index, common_index, line_and_station, hash)
+def stops_on_journey (start_index, stop_index, line_and_station, hash)
   stops = []
-  number_of_stops = (start_index-common_index)
-  #kind of cool saves some lines but its a bit dirty
+  number_of_stops = (start_index-stop_index)
+  #(begin).step(end,stepsize)
   begin
-    (start_index).step(common_index, common_index <=> start_index) do |x|
+    (start_index).step(stop_index, stop_index <=> start_index) do |x|
       stops << hash[line_and_station[:line]][x]
     end
   rescue
@@ -66,16 +59,10 @@ def stops_list(hash, start_station, end_station)
   end_common_index = hash[end_station[:line]].index(common[-1])
 
   if start_station[:line] == end_station[:line]
-    return [stops_to_common(start_index,end_index,start_station,hash)]
-    #working
-    # if start_index < end_index
-    #   return [stops = hash[start_station[:line]][start_index..end_index], nil]
-    # else
-    #   return [stops = hash[start_station[:line]][end_index..start_index].reverse, nil]
-    # end
+    return [stops_on_journey(start_index,end_index,start_station,hash)]
   else
-    start_to_common = stops_to_common(start_index,start_common_index, start_station, hash)
-    end_to_common = stops_to_common(end_index,end_common_index, end_station, hash)
+    start_to_common = stops_on_journey(start_index,start_common_index, start_station, hash)
+    end_to_common = stops_on_journey(end_index,end_common_index, end_station, hash)
     stops =(start_to_common + end_to_common.reverse).uniq
     return [stops, common]
   end
