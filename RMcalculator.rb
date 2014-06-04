@@ -1,19 +1,18 @@
-def calculate(*args)
-	puts args[-1].values[0]
-
+def add(*numbers)
+  numbers.inject(0) { |sum, number| sum + number }  
 end
 
-def add (*numbers)
-  result = 0
-  numbers.each do |x|
-    result += x
-  end
-  return result
+def subtract(*numbers)
+  current_result = numbers.shift
+  return numbers.inject(current_result) { |current_result, number| current_result - number }  
 end
 
-def subtract (*numbers)
-  result = numbers.shift
-  numbers.inject(result) {|result, number| result - number}
+def calculate(*arguments)
+  # if the last argument is a Hash, extract it 
+  # otherwise create an empty Hash
+  options = arguments[-1].is_a?(Hash)? arguments.pop.values[0] : true
+  options ? add(*arguments) : subtract(*arguments)
 end
 
-puts calculate(5,2, add: true)
+
+puts calculate(52,25, add: false)
