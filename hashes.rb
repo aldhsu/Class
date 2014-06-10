@@ -41,6 +41,7 @@ p users["Erik"][:favorite_numbers]
 
 p users ["Anil"][:favorite_numbers].select{|x| x.even?}
 puts "Common begin"
+
 common = nil
 users.keys.each do |key|
   common ||= users[key][:favorite_numbers]

@@ -1,0 +1,12 @@
+<form action="/request" method="get">
+  <input name="symbol" placeholder="Stock Ticker">
+
+  <button>Submit!</button>
+</form>
+
+
+<% if @symbol != nil %>
+  <p>
+  The last price of <%= @symbol %> was $<%= @price%>
+  </p>
+<% end %>
