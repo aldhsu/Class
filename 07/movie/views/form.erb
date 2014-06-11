@@ -1,0 +1,8 @@
+<form action="/request" method="get">
+  <input name="title" placeholder="Movie Title">
+
+  <button>Submit!</button>
+</form>
+<% if @title != nil %>
+  <img src ="<%= @poster %>">
+<% end %>

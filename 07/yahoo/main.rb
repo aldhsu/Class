@@ -4,8 +4,9 @@ require 'sinatra/reloader'
 require 'yahoofinance'
 
 get '/request' do
-  @symbol = params[:symbol].upcase
+  @symbol = params[:symbol]
   if @symbol != nil
+    @symbol.upcase!
     @price = YahooFinance::get_quotes(YahooFinance::StandardQuote, @symbol)[@symbol].lastTrade
   end
   erb :form
