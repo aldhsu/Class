@@ -8,7 +8,7 @@ require 'sinatra/cookies'
 
 enable :sessions
 $array =[]
-get '/request' do
+get '/fetch' do
   @title = params[:title]
 
   if @title != nil
@@ -18,25 +18,11 @@ get '/request' do
     response = HTTParty.get (url)
     @movie = JSON.parse( response )
     @poster = @movie["Poster"]
-    $array << @poster
-    binding.pry
+    @oldposter = cookies[:poster]
   end
-  erb :form
-end
-
-get '/requestc' do
-  @title = params[:title]
-
-  if @title != nil
-    array = @title.split(" ")
-    @title = array.join("+")
-    url ="http://www.omdbapi.com/?t=#{@title}"
-    response = HTTParty.get (url)
-    @movie = JSON.parse( response )
-    @poster = cookies[:poster]
-    $array << @poster
-    binding.pry
-  end
+  binding.pry
+  cookies[:poster] ||= []
+  cookies[:poster] = @poster
   erb :form
 end
 

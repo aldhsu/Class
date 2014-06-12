@@ -1,0 +1,25 @@
+#container {
+  border: 1px solid green;
+  max-width: 960px;
+  margin: auto;
+}
+
+nav ul {
+  padding: 0;
+}
+nav li {
+  display: inline;
+  list-style: none;
+
+}
+nav a {
+  color: grey;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: white;
+  background: grey;
+  padding: 1em 0em 1em 0em;
+  border-radius: 1em;
+}

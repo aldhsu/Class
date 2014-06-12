@@ -1,0 +1,18 @@
+body {
+  background-color: green;
+  color: white;
+  font-size: 140%
+}
+/*
+*/
+p {
+  font-style: italic;
+}
+
+.warning {
+  color: red;
+}
+
+#header {
+  text-decoration: underline;
+}
