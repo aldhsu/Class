@@ -1,0 +1,8 @@
+<form action="/oceans" method="post">
+  <% Ocean.attribute_names.each do |name| %>
+    <% unless name == 'id' %>
+    <p><%= name %><input type="text" name="ocean[<%= name %>]" value="<%= @ocean[name] %>"><p>
+    <% end %>
+  <% end %>
+  <button>Submit</button>
+</form>

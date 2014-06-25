@@ -1,0 +1,52 @@
+body {
+  min-height: 1000em;
+  }
+
+.box {
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  text-align: center;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+}
+
+.z-1 {
+  z-index:1;
+  top:26%;
+  background-color: white;
+}
+
+.z-2 {
+  z-index:2;
+  top:27%;
+  background-color: grey;
+}
+
+.z-3 {
+  z-index:3;
+  top:28%;
+  background-color:red;
+}
+
+.z-4 {
+  z-index:4;
+  top:29%;
+  background-color:black;
+}

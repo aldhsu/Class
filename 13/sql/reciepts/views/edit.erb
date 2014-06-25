@@ -1,0 +1,8 @@
+<h1>Receipt ID<%= @receipt['id'] %></h1>
+<form method="post" action="/edited/<%= @receipt['id'] %>">
+  <label for="">
+    <input type="text" name="service" placeholder="<%= @receipt["service"] %>" value="<%= @receipt["service"] %>">
+  </label>
+  <input type="text" name="cost" placeholder="<%= @receipt["cost"] %>" value="<%= @receipt["cost"] %>">
+  <input type="submit" value="Update">
+</form>

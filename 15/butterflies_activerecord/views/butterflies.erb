@@ -1,0 +1,15 @@
+<form action="/butterflies/family" method="get">
+  <select name="family" id="family">
+    <% %w(Papilionidae Pieridae Nymphalidae Lycaenidae Riodinidae).each do |family| %>
+        <option><%= family %></option>
+      <% end %>
+  </select>
+  <input type="submit">
+</form>
+
+<% @butterflies.each do |butterfly| %>
+  <div class= "butterfly">
+    <h3><a href="/butterflies/<%= butterfly.id %>"><%= butterfly.name %></a></h3>
+    <img src="<%= butterfly.image %>">
+  </div>
+<% end %>

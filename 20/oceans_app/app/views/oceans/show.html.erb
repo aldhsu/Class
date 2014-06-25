@@ -1,0 +1,7 @@
+<h1><%= @ocean.name %></h1>
+<p>Longitude: <%= @ocean.longitude %></p>
+<p>Latitude: <%= @ocean.latitude %></p>
+<p>Volume: <%= @ocean.volume %></p>
+<%= image_tag(@ocean.image) %>
+
+<p><%= link_to("Edit", ocean_edit_path(@ocean.id)) %></p>

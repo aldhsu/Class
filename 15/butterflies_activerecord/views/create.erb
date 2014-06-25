@@ -1,0 +1,18 @@
+<form action="/butterflies" method="post" >
+  <label for="name">Name<input type="text" name="name" id="name"></label>
+  <label for="image">Image<input type="text" name="image" id="image"></label>
+  <label for="family">Family
+    <select name="family" id="family">
+      <% %w(Papilionidae Pieridae Nymphalidae Lycaenidae Riodinidae).each do |family| %>
+      <option><%= family %></option>
+    <% end %>
+  </label>
+  <label for="plant_id">
+    <select name="plant_id" id="plant">
+      <% Plant.all.each do |plant| %>
+        <option value="<%= plant.id %>"><%= plant.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <input type="submit">
+</form>

@@ -1,0 +1,8 @@
+<ul>
+  <% @receipts.each do |receipt| %>
+    <li>
+      <a href="/receipt/<%= receipt["id"] %>"><%= receipt["service"] %></a>
+      <form action="/receipt/<%= receipt['id'] %>/delete" method="post"><input type="submit" value="Delete"></form>
+    </li>
+  <% end %>
+</ul>

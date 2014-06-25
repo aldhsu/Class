@@ -1,0 +1,5 @@
+<form action="/plants/<%= @info.id %>" method="post" >
+  <label for="name">Name<input type="text" name="name" id="name" value="<%= @info.name %>"></label>
+  <label for="image">Image<input type="text" name="image" id="image" value="<%= @info.image %>"></label>
+  <input type="submit" value="Update">
+</form>

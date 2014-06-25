@@ -1,0 +1,27 @@
+body {
+  background: #ddd;
+}
+
+#container {
+  max-width: 960px;
+  margin: auto;
+}
+
+label {
+  background: #999;
+  padding: 1em;
+  border-radius: 1em;
+  display: block;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+input, textarea{
+  width: 95%;
+  margin: 0 auto;
+}
+
+input[type="radio"] {
+  display: inline;
+  width: auto;
+}

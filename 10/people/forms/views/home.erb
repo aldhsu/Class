@@ -1,0 +1,26 @@
+<form action="/processing" method="get">
+  <label for="name">Your Name:
+  <input id="name" type="text" name="name" placeholder="Hodor">
+  </label>
+  <label for="email">Your Email:<input type="email" id="email" name="email"></label>
+  <label for="bio">Your life area<textarea id="bio" rows="4"></textarea></label>
+  <button type="submit">Submit madaparka</button>
+  <label for="check">Spam?<input type="checkbox" id="check"></label>
+  <label for="favourite-brother">Favourite Brother
+    <input type="radio" name="favourite-brother" value="groucho">Groucho
+    <input type="radio" name="favourite-brother" value="zippo">Zippo
+    <input type="radio" name="favourite-brother" value="chico">Chico
+    <input type="radio" name="favourite-brother" value="zeppo">Zeppo
+  </label>
+  <label for="second-favourite-brother">
+    <select name="second-favourite-brother">
+      <% "groucho harpo chico zeppo".split.each do |brother| %>
+        <option value="<%=brother %>"><%= brother.capitalize %></option>
+      <% end %>
+    </select>
+  </label>
+  <label for="age">What is your age<input type="number" name="age" id="age"></label>
+  <label for="favourite-color"><input type="color" id="favourite-color" name="favourite-color"></label>
+  <label for="satisfaction">What is your satisfaction?<input type="range" name="satisfaction" id="satisfaction" min="0" max="10"></label>
+
+</form>

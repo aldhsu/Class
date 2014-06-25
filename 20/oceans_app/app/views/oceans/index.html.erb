@@ -1,0 +1,6 @@
+<% @oceans.each do |ocean|%>
+  <div>
+    <%= link_to(image_tag(ocean.image, class: 'thumb' ), ocean_show_path(ocean.id)) %>
+    <%= button_to("Delete Ocean", oceans_delete_path(ocean.id)) %>
+  </div>
+<% end %>
