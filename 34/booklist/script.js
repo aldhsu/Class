@@ -9,6 +9,8 @@ var books = [
   alreadyRead: true,
   url: "http://3.bp.blogspot.com/-tYSD8dXEJV8/T1ZcO6vxnTI/AAAAAAAAAME/Xognk7KP4Zg/s1600/MostHuman.jpg"
   }];
+
+
 var body = document.getElementsByTagName("body")[0];
 for (var index in books) {
   book = books[index];
