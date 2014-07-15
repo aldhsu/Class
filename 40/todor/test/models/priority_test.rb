@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  urgency    :integer          default(1)
 #
 
 require 'test_helper'
