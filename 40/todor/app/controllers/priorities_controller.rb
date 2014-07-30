@@ -3,13 +3,27 @@ class PrioritiesController < ApplicationController
 
   def index
     @priorities = @current_user.priorities.order(:urgency).reverse
+    respond_to do |format|
+      format.html{}
+      format.json{ render json: @priorities}
+    end
   end
 
   def create
-    priority = Priority.new(name: params[:name], color: params[:color], urgency: params[:urgency])
+    unless params[:id].present?
+      #create new
+      priority = Priority.new(name: params[:name], color: params[:color], urgency: params[:urgency])
+
+    else
+      #update old
+      binding.pry
+      priority = Priority.find(params[:id])
+      priority.update(name: params[:name], color: params[:color], urgency: params[:urgency])
+    end
+    #save
     if priority.save
-      @current_user.priorities << priority
-      redirect_to priorities_path
+        @current_user.priorities << priority
+        render json: priority
     else
       raise "Argh"
     end

@@ -1,0 +1,23 @@
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDXCXrXw88OfhzVr00MfGt_tU5ad8h9SeM"
+
+= form_for @task, remote: true do |f|
+  = f.label :title
+  = f.text_field :title
+
+  = f.label :description
+  = f.text_field :description
+
+  = f.label :address
+  = f.text_field :address
+
+  = f.submit
+
+%div#map_canvas
+
+%script
+  = "$(document).ready(function(){"
+  - @tasks.each do |task|
+
+    = "add_marker(#{task.latitude}, #{task.longitude}, '#{task.title}');"
+  = "});"
+

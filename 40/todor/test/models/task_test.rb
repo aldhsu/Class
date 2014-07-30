@@ -11,6 +11,9 @@
 #  priority_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  address     :text
+#  latitude    :float            default(0.0)
+#  longitude   :float            default(0.0)
 #
 
 require 'test_helper'

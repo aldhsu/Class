@@ -11,9 +11,23 @@
 #  priority_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  address     :text
+#  latitude    :float            default(0.0)
+#  longitude   :float            default(0.0)
 #
 
 class Task < ActiveRecord::Base
+  #Activerecorod hook
+  before_save :geocode
   belongs_to :user
   belongs_to :priority
+
+  private
+  def geocode
+    result = Geocoder.search(self.address)
+    if result.present?
+      self.latitude = result[0].latitude
+      self.longitude = result[0].longitude
+    end
+  end
 end
