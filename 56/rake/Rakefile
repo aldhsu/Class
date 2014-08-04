@@ -1,0 +1,7 @@
+task :turn_off_alarm do
+  puts "Turned off the alarm"
+end
+
+task :groom_myself do
+  puts "Brush teeth"
+end
